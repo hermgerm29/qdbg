@@ -1,0 +1,31 @@
+name: Ubuntu
+
+on: [push, pull_request]
+
+jobs:
+  cpu:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: [3.7, 3.8, 3.9]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install poetry
+      run: |
+        pipx install poetry
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Build & install package
+      run: |
+        poetry install & poetry build
+
+    - name: Unit tests
+      run: |
+        python -m unittest discover -s test

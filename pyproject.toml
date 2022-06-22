@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "qdbg"
+version = "0.0.1"
+description = "quick debugging cli tool"
+authors = ["Jimmy Herman <jimmyherman29@gmail.com>"]
+license = "GNU Affero General Public License v3"
+
+[[tool.poetry.source]]
+name = "public"
+url = "https://pypi.python.org/simple/"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
