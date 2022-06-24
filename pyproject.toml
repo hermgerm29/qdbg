@@ -1,9 +1,11 @@
 [tool.poetry]
 name = "qdbg"
-version = "0.0.1"
+version = "0.0.2"
 description = "quick debugging cli tool"
 authors = ["Jimmy Herman <jimmyherman29@gmail.com>"]
 license = "GNU Affero General Public License v3"
+repository = "https://github.com/hermgerm29/qdbg"
+keywords = ["debugging", "search"]
 
 [[tool.poetry.source]]
 name = "public"
