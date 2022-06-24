@@ -515,9 +515,9 @@ class Installer:
 
         try:
             self._make_lib(version)
-            shutil.move(glob.glob(f'{QDBG_LIB}/*/qdbg')[-1], QDBG_LIB)
-            shutil.rmtree(glob.glob(f'{QDBG_LIB}/qdbg-*')[-1])
-            
+            shutil.move(glob.glob(f"{QDBG_LIB}/*/qdbg")[-1], QDBG_LIB)
+            shutil.rmtree(glob.glob(f"{QDBG_LIB}/qdbg-*")[-1])
+
         except Exception:
             if not os.path.exists(QDBG_LIB_BACKUP):
                 raise
