@@ -9,14 +9,14 @@ from typing import List
 
 
 class QdbgError(Exception):
-    logging.error(f'A qdbg error occurred')
+    logging.error("A qdbg error occurred")
 
 
 def main(args: List[str]) -> None:
     """Run a command"""
 
     if len(args) < 1:
-        logging.error('Qdbg requires a command')
+        logging.error("Qdbg requires a command")
         raise QdbgError
 
     try:
@@ -64,7 +64,7 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.WARN)
 
     if len(sys.argv) < 2:
-        logging.error('Qdbg requires a command')
+        logging.error("Qdbg requires a command")
         raise QdbgError
 
     main(sys.argv[1:])
