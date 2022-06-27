@@ -8,8 +8,17 @@ from urllib.parse import quote_plus
 from typing import List
 
 
+class QdbgError(Exception):
+    logging.error(f'A qdbg error occurred')
+
+
 def main(args: List[str]) -> None:
     """Run a command"""
+
+    if len(args) < 1:
+        logging.error('Qdbg requires a command')
+        raise QdbgError
+
     try:
         child_proc = subprocess.run(args=args, check=False, capture_output=True)
 
@@ -29,8 +38,7 @@ def main(args: List[str]) -> None:
         sys.exit(127)
 
     except Exception as e:
-        logging.error(f"[ QDBG internal error ] {e}")
-        raise e
+        raise QdbgError(e)
 
 
 def parse_traceback(stderr: str, from_bottom: bool = True) -> str:
@@ -54,4 +62,9 @@ def get_search_url(cmd: str, stderr: str) -> str:
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.WARN)
+
+    if len(sys.argv) < 2:
+        logging.error('Qdbg requires a command')
+        raise QdbgError
+
     main(sys.argv[1:])

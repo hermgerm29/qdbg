@@ -200,6 +200,11 @@ sys.path.insert(0, current_vendors)
 if __name__ == "__main__":
     logging.basicConfig(level=logging.WARN)
     from qdbg import main
+    from qdbg import QdbgError
+
+    if len(sys.argv) < 2:
+        logging.error('Qdbg requires a command')
+        raise QdbgError
 
     main(sys.argv[1:])
 """
