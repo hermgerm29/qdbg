@@ -1,0 +1,22 @@
+# See https://pre-commit.com/hooks.html for more hooks
+
+default_stages: [commit]
+
+repos:
+-   repo: https://github.com/PyCQA/flake8
+    rev: 4.0.1
+    hooks:
+    -   id: flake8
+
+-   repo: https://github.com/psf/black
+    rev: 22.3.0
+    hooks:
+    -   id: black
+
+-  repo: local
+   hooks:
+   -   id: unit-tests
+       name: Unit Tests
+       language: system
+       entry: python -m unittest discover -s test
+       pass_filenames: false

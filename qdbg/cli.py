@@ -9,7 +9,7 @@ from typing import List
 
 
 class QdbgError(Exception):
-    logging.error("A qdbg error occurred")
+    pass
 
 
 def main(args: List[str]) -> None:
@@ -62,6 +62,7 @@ def get_search_url(cmd: str, stderr: str) -> str:
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.WARN)
+    print(sys.argv)
 
     if len(sys.argv) < 2:
         logging.error("Qdbg requires a command")
