@@ -41,6 +41,22 @@ class CliTests(unittest.TestCase):
             main(args=[])
 
     @mock.patch("webbrowser.open_new_tab")
+    @mock.patch("subprocess.run")
+    def test_webbrowser_not_found(
+        self, mock_open_new_tab: mock.MagicMock, mock_proc: mock.MagicMock
+    ) -> None:
+        """Test for when no browser is found"""
+        mock_proc.return_value = subprocess.CompletedProcess(
+            args=[], returncode=1, stderr=b""
+        )
+
+        # Result if webbrowser.open_new_tab fails
+        mock_open_new_tab.return_value = False
+
+        with self.assertRaises(QdbgError):
+            main(args=["cmd"])
+
+    @mock.patch("webbrowser.open_new_tab")
     @mock.patch("qdbg.cli.get_search_url")
     @mock.patch("subprocess.run")
     def test_unsuccessful_proc(

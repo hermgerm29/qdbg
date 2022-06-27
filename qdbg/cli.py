@@ -30,7 +30,11 @@ def main(args: List[str]) -> None:
 
     except subprocess.CalledProcessError:
         search_url = get_search_url(cmd=args[0], stderr=child_proc.stderr.decode())
-        webbrowser.open_new_tab(url=search_url)
+
+        if not webbrowser.open_new_tab(url=search_url):
+            logging.error("Unable to open default browser - is one installed?")
+            raise QdbgError
+
         exit(1)
 
     except FileNotFoundError as e:
