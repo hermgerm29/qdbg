@@ -7,6 +7,7 @@ from unittest import mock
 
 from qdbg import main
 from qdbg import parse_traceback
+from qdbg import QdbgError
 
 
 class CliTests(unittest.TestCase):
@@ -32,6 +33,12 @@ class CliTests(unittest.TestCase):
         mock_proc.side_effect = FileNotFoundError
         with self.assertRaises(SystemExit):
             main(args=["cmd"])
+
+    @mock.patch("subprocess.run")
+    def test_no_commands(self, mock_proc: mock.MagicMock) -> None:
+        """Test that an exception is raised if no command is provided"""
+        with self.assertRaises(QdbgError):
+            main(args=[])
 
     @mock.patch("webbrowser.open_new_tab")
     @mock.patch("qdbg.cli.get_search_url")
