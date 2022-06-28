@@ -1,7 +1,9 @@
 ![PyPI](https://img.shields.io/pypi/v/qdbg)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/qdbg)
+![GitHub top language](https://img.shields.io/github/languages/top/hermgerm29/qdbg)
+![GitHub branch checks state](https://img.shields.io/github/checks-status/hermgerm29/qdbg/main)
 [![codecov](https://codecov.io/gh/hermgerm29/qdbg/branch/main/graph/badge.svg?token=2NV84UI94K)](https://codecov.io/gh/hermgerm29/qdbg)
-![GitHub](https://img.shields.io/github/license/hermgerm29/qdbg)
+![GitHub](https://img.shields.io/github/license/hermgerm29/qdbg?color=blue)
 
 
 # qdbg
@@ -9,11 +11,16 @@ Quick debug tool - a general purpose CLI debugging utility
 
 ## Introduction
 
+![qdbg-demo-gif](./assets/qdbg-demo.gif)
+
 Eliminate the wasted clicks and keystrokes involved with copying your error messages into a search bar. `qdbg` does this tedious task for you (and we know you do it a lot :wink:). Simply run any command, and when your program inevitably fails, `qdbg` will automatically open a search tab for you.
 
 ```bash
 qdbg <cmd>
 ```
+
+In the unlikely event that your program runs successfully, `qdbg` will stay out of your way.
+
 
 ## Requirements
 
@@ -29,7 +36,7 @@ qdbg <cmd>
 
 ## Installation
 
-### osx / linux
+### OSX / Linux
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/hermgerm29/qdbg/main/get-qdbg.py | python -
