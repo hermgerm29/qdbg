@@ -5,7 +5,7 @@ description = "a quick debugging cli tool"
 readme = "README.md"
 authors = ["Jimmy Herman <jimmyherman29@gmail.com>"]
 
-license = "GNU Affero General Public License v3"
+license = "MIT"
 repository = "https://github.com/hermgerm29/qdbg"
 keywords = ["debugging", "search"]
 
