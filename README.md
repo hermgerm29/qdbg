@@ -1,5 +1,11 @@
+![PyPI](https://img.shields.io/pypi/v/qdbg)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/qdbg)
+[![codecov](https://codecov.io/gh/hermgerm29/qdbg/branch/main/graph/badge.svg?token=2NV84UI94K)](https://codecov.io/gh/hermgerm29/qdbg)
+![GitHub](https://img.shields.io/github/license/hermgerm29/qdbg)
+
+
 # qdbg
-Quick debug - a pure Python3 command line utility for faster debugging 
+Quick debug tool - a general purpose CLI debugging utility
 
 ## Introduction
 
@@ -11,23 +17,27 @@ qdbg <cmd>
 
 ## Requirements
 
+* A developer that runs faulty programs
 * Python 3.7+
 * Linux or OSX operating system
-* A developer that runs faulty programs
+* A functioning web browser
+
+## Dependencies
+
+`qdbg` is implemented only using the Python3 standard library. The package does have a few developer dependencies, including [python-poetry](https://github.com/python-poetry/poetry), that are listed in `pyproject.toml`.
 
 
 ## Installation
 
-### osx / linux (Recommended)
+### osx / linux
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/hermgerm29/qdbg/main/get-qdbg.py | python -
 ```
 
-## Documentation
+### Windows
 
-Coming soon...
-
+Not supported.
 
 ## Credits
 
