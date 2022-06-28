@@ -13,9 +13,23 @@ class QdbgError(Exception):
 
 
 def main(args: List[str]) -> None:
-    """Run a command"""
+    """Run a command with special error handling. If the command returns a non-zero
+    return code, this function will automatically open a new webbrowser tab and
+    search for the error message.
 
-    if len(args) < 1:
+    Args:
+        *args*: a shell command to run
+
+    Exceptions:
+        * A QdbgError is raised if no command is provided
+        * A QdbgError is raised if no default webbrowser if found
+        * The program exits if a FileNotFoundError occurs
+
+    Returns:
+        None
+    """
+
+    if len(args) < 1:  # pragma: no cover
         logging.error("Qdbg requires a command")
         raise QdbgError
 
@@ -46,7 +60,16 @@ def main(args: List[str]) -> None:
 
 
 def parse_traceback(stderr: str, from_bottom: bool = True) -> str:
-    """Return first non-empty line of the string stderr"""
+    """Return first non-empty line of the string stderr
+
+    Args:
+        *stderr*: a string of the stderr output stream
+        *from_bottom*: when true, search from the end of the stream
+
+    Returns:
+        a non-empty string in the traceback (ideally the error message), if it
+        exists
+    """
     spl = stderr.split("\n")
 
     for line in reversed(spl) if from_bottom else iter(spl):
@@ -58,7 +81,15 @@ def parse_traceback(stderr: str, from_bottom: bool = True) -> str:
 
 
 def get_search_url(cmd: str, stderr: str) -> str:
-    """Get safe search url"""
+    """Create a search url. Defaults to the "you" search engine.
+
+    Args:
+        *cmd*: the first argument of the command provided to `qdbg`
+        *stderr*: a string of the stderr output stream
+
+    Returns:
+        a parameterized search url
+    """
     err = parse_traceback(stderr=stderr)
     search_query = quote_plus(f"{cmd} {err}")
     return f"https://you.com/search?q={search_query}"
@@ -66,9 +97,8 @@ def get_search_url(cmd: str, stderr: str) -> str:
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.WARN)
-    print(sys.argv)
 
-    if len(sys.argv) < 2:
+    if len(sys.argv) < 2:  # pragma: no cover
         logging.error("Qdbg requires a command")
         raise QdbgError
 

@@ -5,6 +5,7 @@ import unittest
 from contextlib import redirect_stdout
 from unittest import mock
 
+from qdbg import get_search_url
 from qdbg import main
 from qdbg import parse_traceback
 from qdbg import QdbgError
@@ -95,3 +96,10 @@ class CliUtilsTest(unittest.TestCase):
     def test_parse_traceback_reversed(self) -> None:
         """Expect to get the first line of the trace"""
         self.assertEqual(parse_traceback(stderr=self.trace, from_bottom=False), "line1")
+
+    @mock.patch("qdbg.cli.parse_traceback")
+    def test_get_search_url(self, mock_parse_traceback: mock.MagicMock) -> None:
+        """Test that the appropriate url is created"""
+        mock_parse_traceback.return_value = "error"
+        url = get_search_url(cmd="python", stderr="error")
+        self.assertEqual(url, "https://you.com/search?q=python+error")

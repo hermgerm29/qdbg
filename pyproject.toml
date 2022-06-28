@@ -1,8 +1,10 @@
 [tool.poetry]
 name = "qdbg"
 version = "0.0.4"
-description = "quick debugging cli tool"
+description = "a quick debugging cli tool"
+readme = "README.md"
 authors = ["Jimmy Herman <jimmyherman29@gmail.com>"]
+
 license = "GNU Affero General Public License v3"
 repository = "https://github.com/hermgerm29/qdbg"
 keywords = ["debugging", "search"]
@@ -13,6 +15,11 @@ url = "https://pypi.python.org/simple/"
 
 [tool.poetry.dependencies]
 python = "^3.7"
+
+[tool.poetry.dev-dependencies]
+black = "^22.0"
+flake8 = "^4.0"
+coverage = "^6.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
