@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "qdbg"
-version = "0.0.4"
+version = "0.1.0"
 description = "a quick debugging cli tool"
 readme = "README.md"
 authors = ["Jimmy Herman <jimmyherman29@gmail.com>"]
