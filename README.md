@@ -1,7 +1,8 @@
 ![PyPI](https://img.shields.io/pypi/v/qdbg)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/qdbg)
 ![GitHub top language](https://img.shields.io/github/languages/top/hermgerm29/qdbg)
-![GitHub branch checks state](https://img.shields.io/github/checks-status/hermgerm29/qdbg/main)
+[![Build Status](https://scrutinizer-ci.com/g/hermgerm29/qdbg/badges/build.png?b=main)](https://scrutinizer-ci.com/g/hermgerm29/qdbg/build-status/main)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/hermgerm29/qdbg/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/hermgerm29/qdbg/?branch=main)
 [![codecov](https://codecov.io/gh/hermgerm29/qdbg/branch/main/graph/badge.svg?token=2NV84UI94K)](https://codecov.io/gh/hermgerm29/qdbg)
 ![GitHub](https://img.shields.io/github/license/hermgerm29/qdbg?color=blue)
 
@@ -36,7 +37,7 @@ In the unlikely event that your program runs successfully, `qdbg` will stay out 
 
 ## Installation
 
-### OSX / Linux
+### OSX / Linux (recommended)
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/hermgerm29/qdbg/main/get-qdbg.py | python -
@@ -45,6 +46,10 @@ curl -sSL https://raw.githubusercontent.com/hermgerm29/qdbg/main/get-qdbg.py | p
 ### Windows
 
 Not supported.
+
+### PyPI
+
+[qdbg](https://pypi.org/project/qdbg/) is available on PyPI, but the recommended install method is preferred.
 
 ## Credits
 
